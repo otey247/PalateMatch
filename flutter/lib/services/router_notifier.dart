@@ -7,6 +7,10 @@ import 'package:devtodollars/components/reset_password_dialog.dart';
 import 'package:devtodollars/screens/auth_screen.dart';
 import 'package:devtodollars/screens/home_screen.dart';
 import 'package:devtodollars/screens/payments_screen.dart';
+import 'package:devtodollars/screens/profile_screen.dart';
+import 'package:devtodollars/screens/discover_screen.dart';
+import 'package:devtodollars/screens/menu_scan_screen.dart';
+import 'package:devtodollars/screens/group_session_screen.dart';
 import 'package:devtodollars/services/auth_notifier.dart';
 
 part 'router_notifier.g.dart';
@@ -14,7 +18,7 @@ part 'router_notifier.g.dart';
 // This is crucial for making sure that the same navigator is used
 // when rebuilding the GoRouter and not throwing away the whole widget tree.
 final navigatorKey = GlobalKey<NavigatorState>();
-Uri? initUrl = Uri.base; // needed to set intiial url state
+Uri? initUrl = Uri.base; // needed to set initial url state
 
 @riverpod
 GoRouter router(RouterRef ref) {
@@ -68,7 +72,7 @@ GoRouter router(RouterRef ref) {
         name: 'home',
         path: '/',
         builder: (context, state) {
-          return const HomeScreen(title: "DevToDollars");
+          return const HomeScreen(title: 'PalateMatch');
         },
         routes: [
           GoRoute(
@@ -77,7 +81,7 @@ GoRouter router(RouterRef ref) {
             pageBuilder: (_, __) {
               return const DialogPage(child: ResetPasswordDialog());
             },
-          )
+          ),
         ],
       ),
       GoRoute(
@@ -85,8 +89,28 @@ GoRouter router(RouterRef ref) {
         path: '/payments',
         builder: (BuildContext context, GoRouterState state) {
           final qp = state.uri.queryParameters;
-          return PaymentsScreen(price: qp["price"]);
+          return PaymentsScreen(price: qp['price']);
         },
+      ),
+      GoRoute(
+        name: 'profile',
+        path: '/profile',
+        builder: (context, state) => const ProfileScreen(),
+      ),
+      GoRoute(
+        name: 'discover',
+        path: '/discover',
+        builder: (context, state) => const DiscoverScreen(),
+      ),
+      GoRoute(
+        name: 'menuScan',
+        path: '/menu-scan',
+        builder: (context, state) => const MenuScanScreen(),
+      ),
+      GoRoute(
+        name: 'groupSession',
+        path: '/group-session',
+        builder: (context, state) => const GroupSessionScreen(),
       ),
     ],
   );

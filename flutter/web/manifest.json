@@ -1,11 +1,11 @@
 {
-    "name": "Dev to Dollars",
-    "short_name": "devtodollars",
+    "name": "PalateMatch",
+    "short_name": "PalateMatch",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#2E7D32",
+    "theme_color": "#2E7D32",
+    "description": "AI-driven dining companion for personalized restaurant and menu recommendations.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

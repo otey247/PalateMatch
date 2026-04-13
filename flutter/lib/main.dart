@@ -16,16 +16,15 @@ void main() async {
 class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(context, ref) {
     final goRouter = ref.watch(routerProvider);
     return MaterialApp.router(
-      title: 'DevToDollars',
+      title: 'PalateMatch',
       debugShowCheckedModeBanner: false,
       routerConfig: goRouter,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true,
       ),
       builder: (context, child) => Container(child: child),

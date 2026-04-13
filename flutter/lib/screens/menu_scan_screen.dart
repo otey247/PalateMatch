@@ -23,6 +23,8 @@ class _MenuScanScreenState extends State<MenuScanScreen> {
     // Simulate OCR + LLM processing delay
     await Future<void>.delayed(const Duration(seconds: 2));
 
+    if (!mounted) return;
+
     // Placeholder results demonstrating Safe/Caution/Recommended labels
     setState(() {
       _isAnalyzing = false;

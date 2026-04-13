@@ -43,6 +43,8 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
     // Simulate a network delay; in production this calls the Discovery Service
     await Future<void>.delayed(const Duration(seconds: 1));
 
+    if (!mounted) return;
+
     // Placeholder results to demonstrate the UI
     setState(() {
       _isLoading = false;
@@ -256,7 +258,7 @@ class _RestaurantCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final score = restaurant.compatibilityScore ?? 0;
+    final score = restaurant.compatibilityScore ?? 0.0;
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(12),

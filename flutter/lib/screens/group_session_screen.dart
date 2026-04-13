@@ -412,7 +412,7 @@ class _GroupRestaurantCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final score = restaurant.compatibilityScore ?? 0;
+    final score = restaurant.compatibilityScore ?? 0.0;
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(12),

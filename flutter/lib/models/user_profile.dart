@@ -90,16 +90,24 @@ class UserProfile {
 
   factory UserProfile.fromJson(Map<String, dynamic> json) {
     final restrictions = (json['dietary_restrictions'] as List<dynamic>? ?? [])
-        .map((e) => DietaryRestriction.values.firstWhere(
-              (r) => r.name == e,
-              orElse: () => DietaryRestriction.vegan,
-            ))
+        .map((e) {
+          try {
+            return DietaryRestriction.values.firstWhere((r) => r.name == e);
+          } catch (_) {
+            return null;
+          }
+        })
+        .whereType<DietaryRestriction>()
         .toSet();
     final allergyList = (json['allergies'] as List<dynamic>? ?? [])
-        .map((e) => Allergy.values.firstWhere(
-              (a) => a.name == e,
-              orElse: () => Allergy.nuts,
-            ))
+        .map((e) {
+          try {
+            return Allergy.values.firstWhere((a) => a.name == e);
+          } catch (_) {
+            return null;
+          }
+        })
+        .whereType<Allergy>()
         .toSet();
     final preferences = (json['taste_preferences'] as List<dynamic>? ?? [])
         .map((e) => TastePreference.fromJson(e as Map<String, dynamic>))

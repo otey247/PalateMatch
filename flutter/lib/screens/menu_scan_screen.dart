@@ -94,9 +94,10 @@ class _MenuScanScreenState extends State<MenuScanScreen> {
             'soy sauce',
             'scallions',
           ],
-          label: RecommendationLabel.safe,
+          label: RecommendationLabel.caution,
           explanation:
-              'Safe: contains shellfish — if you have a shellfish allergy, avoid this item.',
+              'Caution: contains shellfish (shrimp) — avoid if you have a shellfish allergy. '
+              'Also contains egg and soy sauce.',
           confidenceScore: 0.88,
           dietMatchScore: 0.50,
           allergyRiskScore: 0.80,
